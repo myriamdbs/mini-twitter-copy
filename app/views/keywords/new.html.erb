@@ -1,0 +1,7 @@
+<div class="container">
+  <h1>Add a new keyword</h1>
+  <%= simple_form_for(@keyword) do |f| %>
+      <%= f.input :word, placeholder: 'élections municipales', label: "Enter the keyword" %>
+      <%= f.button :submit, "Add this keyword", class: "btn btn-primary" %>
+  <% end %>
+</div>

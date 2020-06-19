@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>My Keywords</h1>
+
+  <ul>
+    <% @keywords.each do |keyword| %>
+      <li>
+        <%= link_to keyword.word.capitalize, keyword_path(keyword)  %>
+        |
+        <%= link_to "Delete", keyword_path(keyword), method: :delete  %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Add a new keyword >>", new_keyword_path, class: "btn btn-primary"  %>
+
+</div>

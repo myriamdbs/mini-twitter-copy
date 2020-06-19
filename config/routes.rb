@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  get 'keywords/index'
+  root to: 'keywords#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  resources :keywords, only: [:index, :show, :new, :create, :destroy]
 end
