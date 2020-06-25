@@ -1,5 +1,5 @@
 class KeywordsController < ApplicationController
-  before_action :find_kw, only: [:show, :destroy]
+  before_action :find_kw, only: [:show, :destroy, :refresh_tweet]
 
   def index
     @keywords = Keyword.all
@@ -22,6 +22,10 @@ class KeywordsController < ApplicationController
   def destroy
     @keyword.destroy
     redirect_to keywords_path
+  end
+
+  def refresh_tweet
+    TweetcallJob.perform_now(@keyword)
   end
 
   private
