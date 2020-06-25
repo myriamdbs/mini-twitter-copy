@@ -1,6 +1,5 @@
 <div class="container">
   <h1>My Keywords</h1>
-
   <ul>
     <% @keywords.each do |keyword| %>
       <li>
@@ -10,7 +9,11 @@
       </li>
     <% end %>
   </ul>
+</div>
 
-  <%= link_to "Add a new keyword >>", new_keyword_path, class: "btn btn-primary"  %>
-
+<div class="container">
+  <%= simple_form_for(@keyword) do |f| %>
+      <%= f.input :word, placeholder: 'élections municipales', label: "Enter a new keyword" %>
+      <%= f.button :submit, "Add this keyword", class: "btn btn-primary" %>
+  <% end %>
 </div>

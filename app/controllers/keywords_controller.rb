@@ -2,13 +2,10 @@ class KeywordsController < ApplicationController
   before_action :find_kw, only: [ :show, :destroy ]
   def index
     @keywords = Keyword.all
+    @keyword = Keyword.new
   end
 
   def show
-  end
-
-  def new
-    @keyword = Keyword.new
   end
 
   def create
