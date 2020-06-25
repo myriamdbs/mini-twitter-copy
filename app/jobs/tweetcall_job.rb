@@ -3,7 +3,7 @@ class TweetcallJob < ApplicationJob
 
   def perform(keyword)
     client_setup.search("#{keyword.word}", result_type: "recent").take(3).collect do |tweet|
-      Tweet.create(content: tweet.text)
+      Tweet.create(content: tweet.text, keyword_id: keyword.id)
     end
   end
 

@@ -1,5 +1,6 @@
 class KeywordsController < ApplicationController
-  before_action :find_kw, only: [ :show, :destroy ]
+  before_action :find_kw, only: [:show, :destroy]
+
   def index
     @keywords = Keyword.all
     @keyword = Keyword.new
@@ -11,6 +12,7 @@ class KeywordsController < ApplicationController
   def create
     @keyword = Keyword.new(keyword_params)
     if @keyword.save
+      TweetcallJob.perform_now(@keyword)
       redirect_to keywords_path
     else
       render :new

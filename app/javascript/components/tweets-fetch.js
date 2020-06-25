@@ -1,13 +1,8 @@
-const getTweetBtn = document.querySelector("#tweet");
+const refreshTweetBtn = document.querySelector("#refresh-tweet");
 
 const getTweet = () => {
-  getTweetBtn.addEventListener("click", (event) => {
-    fetch(`https://api.twitter.com/1.1/search/tweets.json?q=%23elections`)
-      .then(response => response.json())
-      .then((data) => {
-        console.log(data);
-      });
-  });
+  refreshTweetBtn.addEventListener('click', (event) => {
+    fetch("/keywords/6/tweets")
 }
 
 export { getTweet }
