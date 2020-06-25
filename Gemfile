@@ -32,7 +32,7 @@ gem 'autoprefixer-rails'
 gem 'font-awesome-sass'
 gem 'simple_form'
 
-gem 'twitter', '~> 7.0'
+gem 'twitter', '~> 6.2'
 
 group :development, :test do
   gem 'pry-byebug'
