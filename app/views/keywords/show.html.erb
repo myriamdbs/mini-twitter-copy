@@ -1,14 +1,11 @@
 <div class="container">
   <h1>Tweets relative to "<%= @keyword.word.capitalize %>"</h1>
-  <div class="tweet-list">
+  <button id="refresh-tweet" data-id="<%= @keyword.id %>" type="button">Refresh Tweets!</button>
+  <div>
     <% @keyword.tweets.each do |tweet| %>
-      <ul>
+      <ul class="tweets-list" data-content="<%= tweet.content %>">
         <li><%= tweet.content %></li>
       </ul>
     <% end %>
-  </div>
-
-  <div id="refresh-tweet">
-    <%= link_to "Refresh tweets", keyword_tweets_path(@keyword.id), method: :post  %>
   </div>
 </div>

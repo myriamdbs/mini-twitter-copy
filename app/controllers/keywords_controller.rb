@@ -7,6 +7,7 @@ class KeywordsController < ApplicationController
   end
 
   def show
+
   end
 
   def create
