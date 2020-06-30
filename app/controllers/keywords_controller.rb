@@ -27,6 +27,10 @@ class KeywordsController < ApplicationController
 
   def refresh_tweet
     TweetcallJob.perform_now(@keyword)
+    respond_to do |format|
+      format.html
+      format.json { render json: { tweets: @keyword.tweets.order(id: :desc) } }
+    end
   end
 
   private
