@@ -3,9 +3,9 @@
   <ul>
     <% @keywords.each do |keyword| %>
       <li>
-        <%= link_to keyword.word.capitalize, keyword_path(keyword)  %>
+        <%= link_to keyword.word.capitalize, keyword_path(keyword) %>
         |
-        <%= link_to "Delete", keyword_path(keyword), method: :delete  %>
+        <%= link_to "Delete", keyword, method: :delete, data: { confirm: "Are you sure?" } %>
       </li>
     <% end %>
   </ul>
@@ -13,7 +13,7 @@
 
 <div class="container">
   <%= simple_form_for(@keyword) do |f| %>
-      <%= f.input :word, placeholder: 'élections municipales', label: "Enter a new keyword" %>
+      <%= f.input :word, placeholder: 'Trump', label: "Enter a new keyword" %>
       <%= f.button :submit, "Add this keyword", class: "btn btn-primary" %>
   <% end %>
 </div>
