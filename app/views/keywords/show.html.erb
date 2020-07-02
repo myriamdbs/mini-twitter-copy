@@ -5,6 +5,8 @@
     <% @keyword.tweets.each do |tweet| %>
       <ul class="tweets-list" data-content="<%= tweet.content %>">
         <li><%= tweet.content %></li>
+        |
+        <%= link_to "Delete", tweet, method: :delete  %>
       </ul>
     <% end %>
   </div>

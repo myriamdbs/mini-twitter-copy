@@ -7,4 +7,5 @@ Rails.application.routes.draw do
       get :refresh_tweet
     end
   end
+  resources :tweets, only: [:destroy]
 end
