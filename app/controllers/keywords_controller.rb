@@ -1,16 +1,19 @@
 class KeywordsController < ApplicationController
-  before_action :find_kw, only: [ :show, :destroy ]
+  before_action :find_kw, only: [:show, :destroy, :refresh_tweet]
+
   def index
     @keywords = Keyword.all
     @keyword = Keyword.new
   end
 
   def show
+
   end
 
   def create
     @keyword = Keyword.new(keyword_params)
     if @keyword.save
+      TweetcallJob.perform_now(@keyword)
       redirect_to keywords_path
     else
       render :new
@@ -20,6 +23,14 @@ class KeywordsController < ApplicationController
   def destroy
     @keyword.destroy
     redirect_to keywords_path
+  end
+
+  def refresh_tweet
+    TweetcallJob.perform_now(@keyword)
+    respond_to do |format|
+      format.html
+      format.json { render json: { tweets: @keyword.tweets.order(id: :desc) } }
+    end
   end
 
   private

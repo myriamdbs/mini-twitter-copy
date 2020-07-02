@@ -1,3 +1,3 @@
 class Tweet < ApplicationRecord
-  has_many :keywords
+  belongs_to :keyword
 end
