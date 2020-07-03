@@ -7,7 +7,8 @@ const getTweet = () => {
       fetch(url, { headers: { accept: "application/json" } })
         .then(response => response.json())
         .then((data) => {
-          list.insertAdjacentHTML("beforebegin",
+          console.log(data);
+          list.insertAdjacentHTML("afterbegin",
                                  `<ul><li>${data.tweets[0].content}</li>
                                  <li>${data.tweets[1].content}</li>
                                  <li>${data.tweets[2].content}</li></ul>`);;
