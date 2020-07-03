@@ -1,13 +1,7 @@
 <div class="container">
   <h1>Tweets relative to "<%= @keyword.word.capitalize %>"</h1>
   <button id="refresh-tweet" data-id="<%= @keyword.id %>" type="button">Refresh Tweets!</button>
-  <div>
-    <% @keyword.tweets.each do |tweet| %>
-      <ul class="tweets-list" data-content="<%= tweet.content %>">
-        <li><%= tweet.content %></li>
-        |
-        <%= link_to "Delete", tweet, method: :delete  %>
-      </ul>
-    <% end %>
+  <div class="tweets-list">
+    <%= render "tweetlist", keyword: @keyword  %>
   </div>
 </div>
