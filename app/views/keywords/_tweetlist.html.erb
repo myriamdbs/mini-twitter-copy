@@ -1,0 +1,11 @@
+<ul>
+  <% @keyword.tweets.each do |tweet| %>
+  <li data-content="<%= tweet.content %>">
+
+      <%= tweet.content %>
+      |
+      <%= link_to "Delete", tweet, remote: true, method: :delete  %>
+
+  </li>
+  <% end %>
+</ul>
